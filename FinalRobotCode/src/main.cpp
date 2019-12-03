@@ -11,13 +11,11 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
-#include "testClass.cpp"
-using namespace vex;
-yeet importantObject;
 
+using namespace vex;
 
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
-  importantObject.print();
+  
 }
