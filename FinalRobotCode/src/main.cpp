@@ -16,21 +16,21 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
-
-#include "auto.cpp"
-#include "teleop.cpp"
 using namespace vex;
+//#include "auto.cpp"
+#include "teleopMode.cpp"
 
 
-
-
+//auto1 autoRoutine1;
+//teleop teleRoutine;
 
 
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
-  Brain.Timer.reset();
-  
+  //Brain.Timer.reset();
+  //autoRoutine1.runAuto();
+  //teleRoutine.runTeleop();
 
   
 }

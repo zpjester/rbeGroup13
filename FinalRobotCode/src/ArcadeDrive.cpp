@@ -1,6 +1,8 @@
+#ifndef arcadeDriveProtect
+#define arcadeDriveProtect
+
+
 #include "vex.h"
-#ifndef arcadeDrive.cpp
-#define arcadeDrive.cpp
 using namespace vex;
 
 
@@ -51,7 +53,7 @@ void driveArcade(int arcadeSteer,int arcadeThrottle){
 
 void driveController(char stick){
 
-  if(stick=='r'){
+  if(stick=='L'){
   driveArcade(baseController.Axis4.value(),baseController.Axis3.value());
   }
 
@@ -64,4 +66,5 @@ void driveController(char stick){
 
 
 };
+
 #endif
