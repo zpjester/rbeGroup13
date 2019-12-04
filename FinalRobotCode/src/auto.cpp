@@ -1,9 +1,11 @@
 #include "vex.h"
+
 #include "ArcadeDrive.cpp"
+
 using namespace vex;
 
-
-arcadeDrive autonomousDrive;
+extern arcadeDrive driveTrain;
+extern int autoLength;
 
 class auto1{
 public:
@@ -11,7 +13,7 @@ public:
 void runAuto(){
 
 
-  while(Brain.Timer.value()<30){
+  while(Brain.Timer.value()<autoLength){
       //Main auto code goes here
     Brain.Screen.print(30-Brain.Timer.value());
     task::sleep(1000);

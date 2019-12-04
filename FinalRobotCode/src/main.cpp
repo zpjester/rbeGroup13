@@ -16,21 +16,26 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
-using namespace vex;
-//#include "auto.cpp"
+#include "declarations.h"
+#include "matchParameters.h"
+#include "auto.cpp"
 #include "teleopMode.cpp"
+#include "ArcadeDrive.cpp"
+using namespace vex;
 
 
-//auto1 autoRoutine1;
-//teleop teleRoutine;
+arcadeDrive driveTrain;
+
+auto1 autoRoutine1;
+teleop teleRoutine;
 
 
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
-  //Brain.Timer.reset();
-  //autoRoutine1.runAuto();
-  //teleRoutine.runTeleop();
+  Brain.Timer.reset();
+  autoRoutine1.runAuto();
+  teleRoutine.runTeleop();
 
   
 }
