@@ -16,17 +16,21 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
-#include "arcadeDrive.cpp"
+
+#include "auto.cpp"
+#include "teleop.cpp"
 using namespace vex;
 
 
-arcadeDrive drive;
+
 
 
 
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
-  drive.driveController('R');
-  task::sleep(20);
+  Brain.Timer.reset();
+  
+
+  
 }

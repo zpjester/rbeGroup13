@@ -1,4 +1,6 @@
 #include "vex.h"
+#ifndef arcadeDrive.cpp
+#define arcadeDrive.cpp
 using namespace vex;
 
 
@@ -62,3 +64,4 @@ void driveController(char stick){
 
 
 };
+#endif
