@@ -1,24 +1,18 @@
-
 #include "vex.h"
-
 using namespace vex;
+
 
 class arcadeDrive{
 
 public:
-motor Left_Drive;
-motor Right_Drive;
-controller Controller;
+//Bind drive motors here
+  motor Left_Drive = L_Drive;
+  motor Right_Drive = R_Drive;
+  controller baseController = Controller1;
 
 
 
-
-
-
-
-
-
-float max(float a,float b){
+float max(float a,float b){//return the larger of two values
     if(b>a){
         return b;
     }
@@ -27,41 +21,43 @@ float max(float a,float b){
     }
 }
 
-void trueArcade(int x,int y){
+void driveArcade(int arcadeSteer,int arcadeThrottle){
     float outputL=0;//Setup
     float outputR=0;
     
     //Set drive values
-    if(x>=0&&y>=0){//Quadrant 1
-        outputL=max(x,y);
-        outputR=y-x;
+    if(arcadeSteer>=0&&arcadeThrottle>=0){//Quadrant 1
+        outputL=max(arcadeSteer,arcadeThrottle);
+        outputR=arcadeThrottle-arcadeSteer;
     }
-    else if(x<0&&y>=0){//Quadrant 2
-        outputL=x+y;
-        outputR=max((-x),y);
+    else if(arcadeSteer<0&&arcadeThrottle>=0){//Quadrant 2
+        outputL=arcadeSteer+arcadeThrottle;
+        outputR=max((-arcadeSteer),arcadeThrottle);
     }
-    else if(x<0 && y<0){
-        outputL=-max((-x),(-y));
-        outputR=y-x;
+    else if(arcadeSteer<0 && arcadeThrottle<0){
+        outputL=-max((-arcadeSteer),(-arcadeThrottle));
+        outputR=arcadeThrottle-arcadeSteer;
     }
     else{
-        outputL=x+y;
-        outputR=-max(x,(-y));
+        outputL=arcadeSteer+arcadeThrottle;
+        outputR=-max(arcadeSteer,(-arcadeThrottle));
     }
     Left_Drive.spin(directionType::fwd, outputL/1.27, velocityUnits::pct);
     Right_Drive.spin(directionType::fwd, outputR/1.27, velocityUnits::pct);
 }//True arcade drive, faster than standard arcade. Needs the max(x,y) function
 
 
-void driveArcade(char stick){
+void driveController(char stick){
 
   if(stick=='r'){
-  trueArcade(Controller.Axis4.value(),Controller.Axis3.value());
+  driveArcade(baseController.Axis4.value(),baseController.Axis3.value());
   }
+
   else{
-  trueArcade(Controller.Axis2.value(),Controller.Axis1.value());  
+  driveArcade(baseController.Axis2.value(),baseController.Axis1.value());  
   }
 }
+
 
 
 
