@@ -2,4 +2,4 @@
 
 
 int matchLength = 150;
-int autoLength = 15;
+int autoLength = 5;

@@ -4,7 +4,7 @@
 
 extern arcadeDrive driveTrain;
 extern int matchLength;
-using namespace vex;
+
 
 
 
@@ -12,9 +12,12 @@ class teleop{
 public:
 
 void runTeleop(){
-  while(Brain.Timer.value()<=matchLength){
+  while(true){
+
     driveTrain.driveController('L');
+    //Brain.Screen.print("testing");
     task::sleep(20);      
+  
   }
 }
 };

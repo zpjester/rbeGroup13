@@ -3,7 +3,7 @@
 
 
 #include "vex.h"
-using namespace vex;
+
 
 
 
@@ -12,9 +12,8 @@ class arcadeDrive{
 
 public:
 //Bind drive motors here
-  motor Left_Drive = L_Drive;
-  motor Right_Drive = R_Drive;
-  controller baseController = Controller1;
+ 
+  //controller Controller1 = Controller1;
 
 
 
@@ -48,19 +47,19 @@ void driveArcade(int arcadeSteer,int arcadeThrottle){
         outputL=arcadeSteer+arcadeThrottle;
         outputR=-max(arcadeSteer,(-arcadeThrottle));
     }
-    Left_Drive.spin(directionType::fwd, outputL/1.27, velocityUnits::pct);
-    Right_Drive.spin(directionType::fwd, outputR/1.27, velocityUnits::pct);
+    L_Drive.spin(forward, outputL, percent);
+    R_Drive.spin(forward, outputR, percent);
 }//True arcade drive, faster than standard arcade. Needs the max(x,y) function
 
 
 void driveController(char stick){
 
   if(stick=='L'){
-  driveArcade(baseController.Axis4.value(),baseController.Axis3.value());
+  driveArcade(Controller1.Axis4.value(),Controller1.Axis3.value());
   }
 
   else{
-  driveArcade(baseController.Axis2.value(),baseController.Axis1.value());  
+  driveArcade(Controller1.Axis2.value(),Controller1.Axis1.value());  
   }
 }
 

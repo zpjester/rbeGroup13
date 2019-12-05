@@ -2,7 +2,7 @@
 
 #include "ArcadeDrive.cpp"
 
-using namespace vex;
+
 
 extern arcadeDrive driveTrain;
 extern int autoLength;
@@ -15,10 +15,13 @@ void runAuto(){
 
   while(Brain.Timer.value()<autoLength){
       //Main auto code goes here
-    Brain.Screen.print(30-Brain.Timer.value());
+    Brain.Screen.clearScreen();
+
+    Brain.Screen.print(autoLength-Brain.Timer.value());
     task::sleep(1000);
 
       
     }
+    Brain.Screen.print("Auto Ended");
   }
 };
