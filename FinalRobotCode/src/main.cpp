@@ -6,6 +6,27 @@
 // Controller1          controller                    
 // Arm_A                motor         8               
 // Arm_B                motor         9               
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         8               
+// Arm_B                motor         9               
+// Gripper_L            motor         6               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         8               
+// Arm_B                motor         9               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
@@ -74,7 +95,7 @@
 #include "teleopMode.cpp"
 #include "ArcadeDrive.cpp"
 #include "4BarLinkage.cpp"
-
+#include "gripper.cpp"
 
 
 arcadeDrive driveTrain;
@@ -85,8 +106,8 @@ teleop teleRoutine;
 
 
 armLift lift;
-
-int test = 2;
+rollerIntake gripper;
+int test = 3;
 
 
 int main() {

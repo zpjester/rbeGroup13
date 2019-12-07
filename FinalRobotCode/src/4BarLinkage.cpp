@@ -30,7 +30,7 @@ void resetArmPos(){
   Arm_B.setPosition(resetAngle, deg);
 }
 void armMotorsToAngle(double angle, bool await){
-    Arm_A.spinToPosition(angle, deg, await);
+    Arm_A.spinToPosition(angle, deg, false);
     Arm_B.spinToPosition(angle, deg, await);
   }
 void armToAngle(double angle, bool await){

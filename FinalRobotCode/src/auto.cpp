@@ -1,9 +1,13 @@
 #include "vex.h"
 
 #include "ArcadeDrive.cpp"
+#include "4BarLinkage.cpp"
+#include "gripper.cpp"
 
 
 
+extern armLift lift;
+extern rollerIntake gripper;
 extern arcadeDrive driveTrain;
 
 extern int autoLength;
