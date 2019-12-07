@@ -96,9 +96,11 @@
 #include "ArcadeDrive.cpp"
 #include "4BarLinkage.cpp"
 #include "gripper.cpp"
+#include "encoderDrive.cpp"
 
 
 arcadeDrive driveTrain;
+encDrive encoderDrive;
 
 
 auto1 autoRoutine1;
@@ -116,11 +118,11 @@ int main() {
   Brain.Timer.reset();
 
   //Set arm parameters
-  lift.armLength = 12;
-  lift.resetAngle = -45;
+  lift.armLength = 14.3;
+  lift.resetAngle = -39.4;
   lift.shaftHeight = 10.236;
-  lift.manipOffset = -1;
-  lift.speedRatio = 0.1;
+  lift.manipOffset = -0.9;//Needs measurement
+  lift.speedRatio = 12/84;
   lift.resetArmPos();
 
 

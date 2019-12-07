@@ -31,21 +31,33 @@ double getGripperTorque(){
 
 bool smartGripper(std::string direction){
   if(direction == "In" || direction == "in"){
+    
     if(getGripperTorque() < backTorqueThresh){
+      Brain.Screen.clearScreen();
+      Brain.Screen.setCursor(0,0);
+      Brain.Screen.print("Intaking");
       runIntake();
       return false;     
     }
     else{
+      Brain.Screen.clearScreen();
+      Brain.Screen.setCursor(0,0);
       stopGripper();
       return true;
     }
   }
   else{
+    
     if(getGripperTorque() > freeTorqueThresh){
+      Brain.Screen.clearScreen();
+      Brain.Screen.setCursor(0,0);
+      Brain.Screen.print("Ejecting");
       runEject();
       return false;     
     }
     else{
+      Brain.Screen.clearScreen();
+      Brain.Screen.setCursor(0,0);
       stopGripper();
       return true;
     }
