@@ -5,6 +5,7 @@
 
 
 extern arcadeDrive driveTrain;
+
 extern int autoLength;
 
 class auto1{

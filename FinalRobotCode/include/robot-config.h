@@ -6,6 +6,8 @@ extern brain Brain;
 extern motor L_Drive;
 extern motor R_Drive;
 extern controller Controller1;
+extern motor Arm_A;
+extern motor Arm_B;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Text.
