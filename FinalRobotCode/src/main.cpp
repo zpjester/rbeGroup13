@@ -4,7 +4,150 @@
 // L_Drive              motor         2               
 // R_Drive              motor         1               
 // Controller1          controller                    
-// Arm_A                motor         8               
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         3               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         3               
+// R_Drive              motor         2               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         1               
+// R_Drive              motor         2               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         3               
+// R_Drive              motor         2               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         3               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
 // Arm_B                motor         9               
 // Gripper_L            motor         6               
 // Gripper_R            motor         7               
@@ -17,6 +160,17 @@
 // Controller1          controller                    
 // Arm_A                motor         8               
 // Arm_B                motor         9               
+// Gripper_L            motor         6               
+// Gripper_R            motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17               
+// Arm_B                motor         18               
 // Gripper_L            motor         6               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 // ---- START VEXCODE CONFIGURED DEVICES ----
@@ -109,7 +263,7 @@ teleop teleRoutine;
 
 armLift lift;
 rollerIntake gripper;
-int test = 3;
+int test = 0;
 
 
 int main() {
@@ -119,17 +273,21 @@ int main() {
 
   //Set arm parameters
   lift.armLength = 14.3;
-  lift.resetAngle = -39.4;
+  lift.resetAngle = -45;
   lift.shaftHeight = 10.236;
-  lift.manipOffset = -0.9;//Needs measurement
-  lift.speedRatio = 12/84;
+  lift.manipOffset = 0;//Needs measurement
+  lift.speedRatio = .135;
+  
   lift.resetArmPos();
 
 
 
-  autoRoutine1.runAuto();
+  //autoRoutine1.runAuto();
   teleRoutine.runTeleop();
-  
+  //lift.armToFloor(3, true);
+  while(true){
+
+  }
 
   
 }

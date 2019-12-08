@@ -21,7 +21,7 @@ void runTeleop(){
   int currentFloor = 0;
   float targetHeight = currentFloor*4.92;
   bool floorSelecting = false;
-  bool floorMode = true;
+  bool floorMode = false;
   while(true){
     //Drive
     driveTrain.driveController('L');
@@ -42,7 +42,7 @@ void runTeleop(){
   //Set the current floor
   if(Controller1.ButtonL1.pressing()){
     floorMode = true;
-    if(!floorSelecting){
+    if(!floorSelecting && currentFloor < 4){
       floorSelecting = true;
       currentFloor++;
       targetHeight = currentFloor*4.92;
@@ -50,7 +50,7 @@ void runTeleop(){
   }
   else if(Controller1.ButtonL2.pressing()){
     floorMode = true;
-    if(!floorSelecting){
+    if(!floorSelecting && currentFloor > 0){
       floorSelecting = true;
       currentFloor--;
       targetHeight = currentFloor*4.92;
@@ -67,15 +67,22 @@ void runTeleop(){
   
   //Manual height control
 
-  if(Controller1.ButtonRight.pressing()){
+  if(Controller1.ButtonUp.pressing()){
     floorMode = false;
-    targetHeight+=.01;
+    targetHeight+=.05;
     //currentFloor = targetHeight;
   }
-  else if(Controller1.ButtonRight.pressing()){
+  else if(Controller1.ButtonDown.pressing()){
     floorMode = false;
-    targetHeight+=.01;
+    targetHeight-=.05;
     //currentFloor = targetHeight;
+  }
+
+  if(currentFloor > 4){
+    currentFloor = 4;
+  }
+  else if (currentFloor < 0){
+    currentFloor = 0;
   }
 
 

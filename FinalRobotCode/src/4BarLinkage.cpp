@@ -19,23 +19,26 @@ double speedRatio;//Speed Ratio of 4-bar transmission
 
 
 float getAngle(double gripperHeight){//Gives the angle OF THE ARM for an intended height
-  double armHeight = gripperHeight - manipOffset;
-  double armDelta = armHeight - shaftHeight;
-  double armAngle = asin(armDelta/armLength);
-  return armAngle;
+  double endHeight = gripperHeight - manipOffset;
+  double armDelta = endHeight - shaftHeight;
+  double armAngleRads = asin(armDelta/armLength);
+  double armAngleDegrees = armAngleRads*57.2957;
+  return armAngleDegrees;
 }
 
 void resetArmPos(){
-  Arm_B.setPosition(resetAngle, deg);
-  Arm_A.setPosition(resetAngle, deg);
+  Arm_B.setPosition(0, deg);
+  Arm_A.setPosition(0, deg);
+  Brain.Screen.print(Arm_A.position(degrees));
 }
 void armMotorsToAngle(double angle, bool await){
     Arm_B.spinToPosition(angle, deg, false);
     Arm_A.spinToPosition(angle, deg, await);
   }
 void armToAngle(double angle, bool await){
-  double motorAngle = angle / speedRatio;
-  armMotorsToAngle(-motorAngle, await);
+  double motorAngle = (resetAngle-angle) / speedRatio;
+ armMotorsToAngle(motorAngle, await);
+ 
 }
 
 
