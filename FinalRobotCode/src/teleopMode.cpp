@@ -17,12 +17,29 @@ extern encDrive encoderDrive;
 class teleop{
 public:
 
-void runTeleop(){
+
+// void initTeleop(){
+  
+// }
+
+void runTeleop(bool firstRun){
   int currentFloor = 0;
-  float targetHeight = currentFloor*4.92;
-  bool floorSelecting = false;
-  bool floorMode = false;
+  int targetHeight = currentFloor*4.92;
+  int floorSelecting = false;
+  int floorMode = false;
+
   while(true){
+  
+
+  
+  // if(firstRun){
+  // currentFloor = 0;
+  // targetHeight = currentFloor*4.92;
+  // floorSelecting = false;
+  // floorMode = false;
+
+  
+  // }
     //Drive
     driveTrain.driveController('L');
 

@@ -11,28 +11,7 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
-#include "declarations.h"
-#include "matchParameters.h"
-#include "auto.cpp"
-#include "teleopMode.cpp"
-#include "ArcadeDrive.cpp"
-#include "4BarLinkage.cpp"
-#include "gripper.cpp"
-#include "encoderDrive.cpp"
 
-
-arcadeDrive driveTrain;
-encDrive encoderDrive;
-
-
-auto1 autoRoutine1;
-teleop teleRoutine;
-
-
-armLift lift;
-rollerIntake gripper;
-int test = 81;
-bool firstTele = true;
 using namespace vex;
 
 // A global instance of competition
@@ -54,21 +33,6 @@ void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
-  Brain.Timer.reset();
-
-  //Set arm parameters
-  lift.armLength = 13;
-  lift.resetAngle = -45;
-  lift.shaftHeight = 10.236;
-  lift.manipOffset = -.9;//Needs measurement
-  lift.speedRatio = .135;
-  
-  lift.resetArmPos();
-
-  
-  
-  
-
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
 }
@@ -84,7 +48,9 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
-  autoRoutine1.runAuto();
+  // ..........................................................................
+  // Insert autonomous user code here.
+  // ..........................................................................
 }
 
 /*---------------------------------------------------------------------------*/
@@ -99,13 +65,7 @@ void autonomous(void) {
 
 void usercontrol(void) {
   // User control code here, inside the loop
- 
- // while (1) {
-
-    
-    teleRoutine.runTeleop(firstTele);
-    firstTele = false;
-    
+  while (1) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.
@@ -117,7 +77,7 @@ void usercontrol(void) {
 
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
-  //}
+  }
 }
 
 //

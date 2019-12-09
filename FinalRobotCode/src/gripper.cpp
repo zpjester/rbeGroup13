@@ -4,8 +4,8 @@
 
 class rollerIntake{
 private:
-double freeTorqueThresh = 0.1;//N*M
-double backTorqueThresh = .45;//N*M
+double freeTorqueThresh = 0.3;//N*M
+double backTorqueThresh = 1;//N*M
 
 
 public:
