@@ -5,7 +5,7 @@
 #include "gripper.cpp"
 #include "encoderDrive.cpp"
 
-
+extern brain Brain;
 extern armLift lift;
 extern rollerIntake gripper;
 extern arcadeDrive driveTrain;
@@ -21,29 +21,34 @@ void runAuto(){
 
 
     
+//gripper.fullSmartGripper("In");
+// Brain.Screen.clearScreen();
+// Brain.Screen.setCursor(0,0);
+// Brain.Screen.print("Yeet");
+//lift.armToAngle(0, true);
 
 lift.armToFloor(1, true);
-task::sleep(1000);
-lift.armToFloor(2, true);
-task::sleep(1000);
+task::sleep(0);
+lift.armToFloor(0, true);
+task::sleep(0);
 lift.armToFloor(3, true);
-task::sleep(1000);
-lift.armToFloor(4, true);
-task::sleep(1000);
+task::sleep(0);
+lift.armToFloor(0, true);
+task::sleep(0);
 lift.armToFloor(5, true);
-gripper.fullSmartGripper("Out");
+//gripper.fullSmartGripper("Out");
 task::sleep(1000);
 
-Brain.Screen.clearScreen();
-Brain.Screen.setCursor(0,0);
-Brain.Screen.print("Driving backwards 10 inches");
-encoderDrive.driveDistance(-10, true);
-Brain.Screen.clearScreen();
-Brain.Screen.setCursor(0,0);
-task::sleep(1000);
-Brain.Screen.print("Driving forwards 10 inches");
-encoderDrive.driveDistance(10, true);
-Brain.Screen.clearScreen();
+// Brain.Screen.clearScreen();
+// Brain.Screen.setCursor(0,0);
+// Brain.Screen.print("Driving backwards 10 inches");
+// encoderDrive.driveDistance(-10, true);
+// Brain.Screen.clearScreen();
+// Brain.Screen.setCursor(0,0);
+// task::sleep(1000);
+// Brain.Screen.print("Driving forwards 10 inches");
+// encoderDrive.driveDistance(10, true);
+// Brain.Screen.clearScreen();
 
 
   while(Brain.Timer.value()<autoLength){

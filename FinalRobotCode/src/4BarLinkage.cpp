@@ -32,8 +32,17 @@ void resetArmPos(){
   Brain.Screen.print(Arm_A.position(degrees));
 }
 void armMotorsToAngle(double angle, bool await){
+  
     Arm_B.spinToPosition(angle, deg, false);
-    Arm_A.spinToPosition(angle, deg, await);
+    Arm_A.spinToPosition(angle, deg, false);
+    
+
+    if(await){
+      int currentPosition = Arm_A.position(deg);
+      int delta = angle - currentPosition;
+      int estTime = (delta / 90 * 1.1);
+      task::sleep(estTime*1000);
+    }
   }
 void armToAngle(double angle, bool await){
   double motorAngle = (resetAngle-angle) / speedRatio;
@@ -48,9 +57,9 @@ armToAngle(armAngle, await);
 }
 
 void armToFloor(int floor, bool await){
-    Brain.Screen.clearScreen();
-    Brain.Screen.setCursor(0,0);
-    Brain.Screen.print("Moving to floor", floor);
+    //Brain.Screen.clearScreen();
+    // Brain.Screen.setCursor(0,0);
+    // Brain.Screen.print("Moving to floor", floor);
   double height = floor*floorHeight;
   armToHeight(height, await);
 }

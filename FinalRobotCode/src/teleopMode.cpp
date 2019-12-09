@@ -29,9 +29,11 @@ void runTeleop(){
     //Gripper controls
     if(Controller1.ButtonR2.pressing()){
       gripper.runEject();
+      // gripper.smartGripper("out");
     }
     else if(Controller1.ButtonR1.pressing()){
       gripper.runIntake();
+      // gripper.smartGripper("In");
     }
     else{
       gripper.stopGripper();

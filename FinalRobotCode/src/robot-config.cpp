@@ -13,8 +13,7 @@ motor R_Drive = motor(PORT1, ratio18_1, true);
 controller Controller1 = controller(primary);
 motor Arm_A = motor(PORT17, ratio18_1, false);
 motor Arm_B = motor(PORT18, ratio18_1, true);
-motor Gripper_L = motor(PORT6, ratio18_1, false);
-motor Gripper_R = motor(PORT7, ratio18_1, false);
+motor Gripper_M = motor(PORT6, ratio18_1, false);
 
 // VEXcode generated functions
 

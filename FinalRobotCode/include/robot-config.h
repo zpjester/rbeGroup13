@@ -8,8 +8,7 @@ extern motor R_Drive;
 extern controller Controller1;
 extern motor Arm_A;
 extern motor Arm_B;
-extern motor Gripper_L;
-extern motor Gripper_R;
+extern motor Gripper_M;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Text.

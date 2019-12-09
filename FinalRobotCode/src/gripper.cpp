@@ -4,29 +4,29 @@
 
 class rollerIntake{
 private:
-double freeTorqueThresh = 0.2;//N*M
-double backTorqueThresh = 1.0;//N*M
+double freeTorqueThresh = 0.1;//N*M
+double backTorqueThresh = .5;//N*M
 
 
 public:
 
 void stopGripper(){
-  Gripper_L.stop();
-  Gripper_R.stop();
+  Gripper_M.stop();
+  
 }
 void runIntake(){
-  Gripper_L.spin(forward, 100, pct);
-  Gripper_R.spin(forward, 100, pct);
+  Gripper_M.spin(forward, 100, pct);
+  
 }
 void runEject(){
-  Gripper_L.spin(reverse, 100, pct);
-  Gripper_R.spin(reverse, 100, pct);
+  Gripper_M.spin(reverse, 100, pct);
+  
 }
 
 
 double getGripperTorque(){
-  double averageTorque = (Gripper_L.torque(Nm) + Gripper_R.torque(Nm))/2;
-  return averageTorque;
+  double mTorque = Gripper_M.torque(Nm);
+  return mTorque;
 }
 
 bool smartGripper(std::string direction){
