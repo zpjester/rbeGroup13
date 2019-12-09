@@ -6,7 +6,7 @@
 class armLift{
 private:
 
-double floorHeight = 4.92;//Inches
+double floorHeight = 5;//Inches
 
 public:
 
@@ -34,15 +34,16 @@ void resetArmPos(){
 void armMotorsToAngle(double angle, bool await){
   
     Arm_B.spinToPosition(angle, deg, false);
-    Arm_A.spinToPosition(angle, deg, false);
+    Arm_A.spinToPosition(angle, deg, await);
     
 
-    if(await){
-      int currentPosition = Arm_A.position(deg);
-      int delta = angle - currentPosition;
-      int estTime = (delta / 90 * 1.1);
-      task::sleep(estTime*1000);
-    }
+    // if(await){
+    //   int currentPosition = Arm_A.position(deg);
+    //   int delta = angle - currentPosition;
+    //   Brain.Screen.print(delta);
+    //   int estTime = abs((delta / 90) * 1.1);
+    //   task::sleep(estTime*1000);
+    // }
   }
 void armToAngle(double angle, bool await){
   double motorAngle = (resetAngle-angle) / speedRatio;

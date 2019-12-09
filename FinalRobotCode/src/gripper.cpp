@@ -5,7 +5,7 @@
 class rollerIntake{
 private:
 double freeTorqueThresh = 0.1;//N*M
-double backTorqueThresh = .5;//N*M
+double backTorqueThresh = .45;//N*M
 
 
 public:
@@ -47,7 +47,8 @@ bool smartGripper(std::string direction){
     }
   }
   else{
-    
+    runEject();
+    task::sleep(100);
     if(getGripperTorque() > freeTorqueThresh){
       Brain.Screen.clearScreen();
       Brain.Screen.setCursor(0,0);
@@ -58,6 +59,7 @@ bool smartGripper(std::string direction){
     else{
       Brain.Screen.clearScreen();
       Brain.Screen.setCursor(0,0);
+      task::sleep(100);
       stopGripper();
       return true;
     }

@@ -21,45 +21,48 @@ void runAuto(){
 
 
     
-//gripper.fullSmartGripper("In");
+gripper.fullSmartGripper("In");
 // Brain.Screen.clearScreen();
 // Brain.Screen.setCursor(0,0);
 // Brain.Screen.print("Yeet");
 //lift.armToAngle(0, true);
 
 lift.armToFloor(1, true);
-task::sleep(0);
 lift.armToFloor(0, true);
-task::sleep(0);
+lift.armToFloor(2, true);
+lift.armToFloor(0, true);
 lift.armToFloor(3, true);
-task::sleep(0);
 lift.armToFloor(0, true);
-task::sleep(0);
-lift.armToFloor(5, true);
-//gripper.fullSmartGripper("Out");
-task::sleep(1000);
-
-// Brain.Screen.clearScreen();
-// Brain.Screen.setCursor(0,0);
-// Brain.Screen.print("Driving backwards 10 inches");
-// encoderDrive.driveDistance(-10, true);
-// Brain.Screen.clearScreen();
-// Brain.Screen.setCursor(0,0);
-// task::sleep(1000);
-// Brain.Screen.print("Driving forwards 10 inches");
-// encoderDrive.driveDistance(10, true);
-// Brain.Screen.clearScreen();
+lift.armToFloor(4, true);
+gripper.fullSmartGripper("Out");
+lift.armToFloor(1,true);
 
 
-  while(Brain.Timer.value()<autoLength){
+
+
+
+
+Brain.Screen.clearScreen();
+Brain.Screen.setCursor(0,0);
+Brain.Screen.print("Driving backwards 10 inches");
+encoderDrive.driveDistance(-10, true);
+Brain.Screen.clearScreen();
+Brain.Screen.setCursor(0,0);
+
+Brain.Screen.print("Driving forwards 10 inches");
+encoderDrive.driveDistance(10, true);
+Brain.Screen.clearScreen();
+//while(true){}
+
+  // while(Brain.Timer.value()<autoLength){
       
-    Brain.Screen.clearScreen();
-    Brain.Screen.setCursor(0,0);
-    Brain.Screen.print(autoLength-Brain.Timer.value());
-    task::sleep(1000);
+  //   Brain.Screen.clearScreen();
+  //   Brain.Screen.setCursor(0,0);
+  //   Brain.Screen.print(autoLength-Brain.Timer.value());
+  //   task::sleep(1000);
 
       
-    }
-    Brain.Screen.print("Auto Ended");
+  //   }
+  //   Brain.Screen.print("Auto Ended");
   }
 };

@@ -31,7 +31,7 @@ teleop teleRoutine;
 
 armLift lift;
 rollerIntake gripper;
-int test = 47;
+int test = 75;
 
 
 int main() {
@@ -40,7 +40,7 @@ int main() {
   Brain.Timer.reset();
 
   //Set arm parameters
-  lift.armLength = 14.0;
+  lift.armLength = 13;
   lift.resetAngle = -45;
   lift.shaftHeight = 10.236;
   lift.manipOffset = -.9;//Needs measurement
@@ -48,9 +48,8 @@ int main() {
   
   lift.resetArmPos();
 
-  // Brain.Screen.print("testing");
-  task::sleep(1000);
-  //autoRoutine1.runAuto();
+  
+  autoRoutine1.runAuto();
   teleRoutine.runTeleop();
   //lift.armToFloor(3, true);
   while(true){
