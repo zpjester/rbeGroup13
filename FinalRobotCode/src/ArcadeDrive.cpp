@@ -63,7 +63,40 @@ void driveController(char stick){
   }
 }
 
-
+bool basicLineFollow(){
+  int lineThreshold = 12;
+  int offSteer = 50;
+  bool L_Tripped;
+  bool R_Tripped;
+  if(L_Line.reflectivity() < lineThreshold){
+    L_Tripped = true;
+  }
+  else{
+    L_Tripped = false;
+  }
+  if(R_Line.reflectivity() < lineThreshold){
+    R_Tripped = true;
+  }
+  else{
+    R_Tripped = false;
+  }
+  if(L_Tripped && R_Tripped){
+    driveArcade(0,0);
+    return true;
+  }
+  else if(L_Tripped){
+    driveArcade(offSteer, 0);
+    return false;
+  }
+  else if(R_Tripped){
+    driveArcade(-offSteer, 0);
+    return false;
+  }
+  else{
+    driveArcade(0, 50);
+    return false;
+  }
+}
 
 
 };

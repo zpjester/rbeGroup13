@@ -14,6 +14,9 @@ controller Controller1 = controller(primary);
 motor Arm_A = motor(PORT17, ratio18_1, false);
 motor Arm_B = motor(PORT18, ratio18_1, true);
 motor Gripper_M = motor(PORT6, ratio18_1, false);
+line L_Line = line(Brain.ThreeWirePort.H);
+line R_Line = line(Brain.ThreeWirePort.G);
+bumper backBump = bumper(Brain.ThreeWirePort.A);
 
 // VEXcode generated functions
 

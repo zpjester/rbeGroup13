@@ -25,6 +25,16 @@ float getAngle(double gripperHeight){//Gives the angle OF THE ARM for an intende
   double armAngleDegrees = armAngleRads*57.2957;
   return armAngleDegrees;
 }
+void releaseArm(){
+  Arm_A.setStopping(coast);
+  Arm_A.stop();
+  Arm_B.setStopping(coast);
+  Arm_B.stop();
+  task::sleep(1000);
+  Arm_A.setStopping(hold);
+  Arm_B.setStopping(hold);
+
+}
 
 void resetArmPos(){
   Arm_B.setPosition(0, deg);

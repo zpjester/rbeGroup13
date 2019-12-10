@@ -28,30 +28,47 @@ gripper.fullSmartGripper("In");
 //lift.armToAngle(0, true);
 
 lift.armToFloor(1, true);
+// lift.armToFloor(0, true);
+// lift.armToFloor(2, true);
+// lift.armToFloor(0, true);
+// lift.armToFloor(3, true);
+// lift.armToFloor(0, true);
+// lift.armToFloor(4, true);
+
+//while(!driveTrain.basicLineFollow()){}
+encoderDrive.driveDistance(24.5, true);
 lift.armToFloor(0, true);
-lift.armToFloor(2, true);
+encoderDrive.driveDistance(4, true);
+lift.armToFloor(2, false);
+encoderDrive.driveDistance(20, true);
+encoderDrive.driveArc(0, 'f', 'r', 90, true);
+driveTrain.driveArcade(0,-50);
+while(!backBump.pressing()){}
+driveTrain.driveArcade(0,0);
 lift.armToFloor(0, true);
+lift.releaseArm();
+lift.resetArmPos();
 lift.armToFloor(3, true);
-lift.armToFloor(0, true);
-lift.armToFloor(4, true);
+encoderDrive.driveDistance(24, true);
 gripper.fullSmartGripper("Out");
-lift.armToFloor(1,true);
-
-
-
-
-
-
-Brain.Screen.clearScreen();
-Brain.Screen.setCursor(0,0);
-Brain.Screen.print("Driving backwards 10 inches");
 encoderDrive.driveDistance(-10, true);
-Brain.Screen.clearScreen();
-Brain.Screen.setCursor(0,0);
+// lift.armToFloor(1,true);
 
-Brain.Screen.print("Driving forwards 10 inches");
-encoderDrive.driveDistance(10, true);
-Brain.Screen.clearScreen();
+
+
+
+
+
+// Brain.Screen.clearScreen();
+// Brain.Screen.setCursor(0,0);
+// Brain.Screen.print("Driving backwards 10 inches");
+// encoderDrive.driveDistance(-10, true);
+// Brain.Screen.clearScreen();
+// Brain.Screen.setCursor(0,0);
+
+// Brain.Screen.print("Driving forwards 10 inches");
+// encoderDrive.driveDistance(10, true);
+// Brain.Screen.clearScreen();
 //while(true){}
 
   // while(Brain.Timer.value()<autoLength){

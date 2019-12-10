@@ -1,3 +1,75 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_M            motor         6               
+// L_Line               line          H               
+// R_Line               line          G               
+// backBump             bumper        A               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_M            motor         6               
+// L_Line               line          H               
+// R_Line               line          G               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_M            motor         6               
+// L_Line               line          F               
+// R_Line               line          G               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_M            motor         6               
+// L_Line               line          F               
+// R_Line               line          H               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_M            motor         6               
+// L_Line               line          G               
+// R_Line               line          H               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// L_Drive              motor         2               
+// R_Drive              motor         1               
+// Controller1          controller                    
+// Arm_A                motor         17              
+// Arm_B                motor         18              
+// Gripper_M            motor         6               
+// L_Line               line          G               
+// ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
@@ -31,7 +103,7 @@ teleop teleRoutine;
 
 armLift lift;
 rollerIntake gripper;
-int test = 81;
+int test = 111;
 bool firstTele = true;
 using namespace vex;
 
@@ -58,9 +130,9 @@ void pre_auton(void) {
 
   //Set arm parameters
   lift.armLength = 13;
-  lift.resetAngle = -45;
+  lift.resetAngle = -46;
   lift.shaftHeight = 10.236;
-  lift.manipOffset = -.9;//Needs measurement
+  lift.manipOffset = -1;//Needs measurement
   lift.speedRatio = .135;
   
   lift.resetArmPos();
@@ -84,6 +156,7 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
+  Brain.Screen.print(test);
   autoRoutine1.runAuto();
 }
 

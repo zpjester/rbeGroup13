@@ -9,6 +9,9 @@ extern controller Controller1;
 extern motor Arm_A;
 extern motor Arm_B;
 extern motor Gripper_M;
+extern line L_Line;
+extern line R_Line;
+extern bumper backBump;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Text.
