@@ -34,9 +34,12 @@ teleop teleRoutine;
 
 armLift lift;
 rollerIntake gripper;
-int test = 111;
+int test = 159;
 bool firstTele = true;
 using namespace vex;
+
+char autoColor;
+char autoSide;
 
 // A global instance of competition
 competition Competition;
@@ -54,10 +57,53 @@ void pre_auton(void) {
   lift.armLength = 13;
   lift.resetAngle = -46;
   lift.shaftHeight = 10.236;
-  lift.manipOffset = -1;//Needs measurement
+  lift.manipOffset = -1.75;//Needs measurement
   lift.speedRatio = .135;
   
+int screenX = 480;
+int screenY = 272;
+
+  Brain.Screen.clearScreen();
+  Brain.Screen.setFillColor(black);
+  Brain.Screen.drawRectangle(0, 0, screenX/2, screenY/2);
+  Brain.Screen.drawRectangle(0, screenY/2, screenX/2, screenY/2);
+  Brain.Screen.drawRectangle(screenX/2, 0, screenX/2, screenY/2);
+  Brain.Screen.drawRectangle(screenX/2,  screenY/2, screenX/2, screenY/2);
+  Brain.Screen.setFillColor(red);
+  Brain.Screen.drawRectangle(0, 0, screenX/2, screenY/2);
+  Brain.Screen.drawRectangle(0, screenY/2, screenX/2, screenY/2);
+  Brain.Screen.setFillColor(blue);
+  Brain.Screen.drawRectangle(screenX/2, 0, screenX/2, screenY/2);
+  Brain.Screen.drawRectangle(screenX/2,  screenY/2, screenX/2, screenY/2);
+
+  
+
+  while(!Brain.Screen.pressing()){}
+  int touchX = Brain.Screen.xPosition();
+  int touchY = Brain.Screen.yPosition();
+  
+
+  if(touchX < screenX/2){
+    autoColor = 'r';
+  }
+  else{
+    autoColor = 'b';
+  }
+  if(touchY < screenY/2){
+    autoSide = '3';
+  }
+  else{
+    autoSide = 'c';
+  }
+  Brain.Screen.clearScreen();
+
+
+
+
+
   lift.resetArmPos();
+
+
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
 }
@@ -66,7 +112,25 @@ void pre_auton(void) {
 
 void autonomous(void) {
   Brain.Screen.print(test);
-  autoRoutine1.runAuto();
+
+if(autoColor == 'r'){
+  if(autoSide == '3'){
+    autoRoutine1.runAutoRedTriple();
+  }
+  else{
+    autoRoutine1.runAutoRedConstruct();
+  }
+}
+else{
+  if(autoSide == '3'){
+    autoRoutine1.runAutoBlueTriple();
+  }
+  else{
+    autoRoutine1.runAutoBlueConstruct();
+  }
+}
+
+  
 }
 
 

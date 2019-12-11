@@ -22,8 +22,8 @@ float calculateRotations(double targetDistance){
 void driveArc(float radius, char driveDirection, char turnDirection, float angle, bool await){
     
     
-    float treadWidth=12.75;//inches
-    float motorMaxSpeed=100;//percent
+    float treadWidth=13.75;//inches
+    float motorMaxSpeed=75;//percent
     
     float IWheelDistance=(radius - treadWidth/2)*3.1416*2*angle/360;//inches
     float OWheelDistance=(radius + treadWidth/2)*3.1416*2*angle/360;//inches

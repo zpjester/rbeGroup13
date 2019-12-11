@@ -6,7 +6,7 @@
 class armLift{
 private:
 
-double floorHeight = 5;//Inches
+double floorHeight = 4.7;//Inches
 
 public:
 
@@ -71,8 +71,25 @@ void armToFloor(int floor, bool await){
     //Brain.Screen.clearScreen();
     // Brain.Screen.setCursor(0,0);
     // Brain.Screen.print("Moving to floor", floor);
-  double height = floor*floorHeight;
-  armToHeight(height, await);
+  if(floor == 0){
+   armToHeight(-.25, await); 
+  }
+  else if(floor == 1){
+   armToHeight(5, await); 
+  }
+  else if(floor == 2){
+   armToHeight(9.8, await); 
+  }
+  else if(floor == 3){
+   armToHeight(14.1, await); 
+  }
+  else if(floor == 4){
+   armToHeight(18.8, await); 
+  }
+  else{
+   armToHeight(0, await); 
+  }
+ 
 }
 
 
