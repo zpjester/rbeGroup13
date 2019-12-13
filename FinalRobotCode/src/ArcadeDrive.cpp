@@ -55,11 +55,17 @@ void driveArcade(int arcadeSteer,int arcadeThrottle){
 void driveController(char stick){
 
   if(stick=='L'){
-  driveArcade(Controller1.Axis4.value(),Controller1.Axis3.value());
+
+    double expX = pow(Controller1.Axis4.value(), 3) / pow(100,3);
+    double expY = pow(Controller1.Axis3.value(), 3) / pow(100,3);
+   driveArcade(Controller1.Axis4.value(),Controller1.Axis3.value());
+  // driveArcade(expX, expY);
   }
 
   else{
-  driveArcade(Controller1.Axis2.value(),Controller1.Axis1.value());  
+    double expX = pow(Controller1.Axis2.value(), 3) / pow(127,3);
+    double expY = pow(Controller1.Axis1.value(), 3) / pow(127,3);
+ driveArcade(expX, expY);
   }
 }
 
