@@ -20,70 +20,71 @@ public:
 
 
 void runTeleop(bool firstRun){//Run the teleop
+//Setup variables
   int currentFloor = 0;
   int targetHeight = currentFloor*4.92;
   int floorSelecting = false;
   int floorMode = false;
 
   while(true){
-    //Drive
-    driveTrain.driveController('L');
+    
+    driveTrain.driveController('L');//Drive using the left stick in arcade drive mode
 
     //Gripper controls
-    if(Controller1.ButtonR2.pressing()){
+    if(Controller1.ButtonR2.pressing()){//If lower right trigger pressed, eject pizza
       gripper.runEject();
-      // gripper.smartGripper("out");
+      
     }
-    else if(Controller1.ButtonR1.pressing()){
+    else if(Controller1.ButtonR1.pressing()){//If upper right trigger pressed, intake pizza
       gripper.runIntake();
-      // gripper.smartGripper("In");
+      
     }
     else{
-      gripper.stopGripper();
+      gripper.stopGripper();//Otherwise, stop the gripper motor
     }
 
   
 
   //Set the current floor based on controller inputs
-  if(Controller1.ButtonL1.pressing()){
-    floorMode = true;
-    if(!floorSelecting && currentFloor < 4){
+  if(Controller1.ButtonL1.pressing()){//If left upper trigger is pressed
+    floorMode = true;//Set arm to intelligent floor mode
+    if(!floorSelecting && currentFloor < 4){//If able to increase floor safely
       floorSelecting = true;
-      currentFloor++;
-      targetHeight = currentFloor*4.92;
+      currentFloor++;//Increase the set floor
+      targetHeight = currentFloor*4.92;//Change the height setpoint
     }
   }
-  else if(Controller1.ButtonL2.pressing()){
-    floorMode = true;
-    if(!floorSelecting && currentFloor > 0){
+  else if(Controller1.ButtonL2.pressing()){//If left lower trigger is pressed
+    floorMode = true;//Set arm to intelligent floor mode
+    if(!floorSelecting && currentFloor > 0){//If able to decrease floor safely
       floorSelecting = true;
-      currentFloor--;
-      targetHeight = currentFloor*4.92;
+      currentFloor--;//Decrease the set floor
+      targetHeight = currentFloor*4.92;//Change the height setpoint
     }
   }
   
-  else if(Controller1.ButtonRight.pressing()){
+  else if(Controller1.ButtonRight.pressing()){//If in manual mode, the right arrow button sets it to intelligent floor mode
     floorMode = true;
     floorSelecting = false;
   }
-  else{
+  else{//If no intelligent floor inputs are active, reset the floorSelecting variable to allow inputs again
     floorSelecting = false;
   }
   
   //Manual height control
 
-  if(Controller1.ButtonUp.pressing()){
+  if(Controller1.ButtonUp.pressing()){//Up arrow moves setpoint up
     floorMode = false;
     targetHeight+=.05;
-    //currentFloor = targetHeight;
+    
   }
-  else if(Controller1.ButtonDown.pressing()){
+  else if(Controller1.ButtonDown.pressing()){//Down arrow moves setpoint down
     floorMode = false;
     targetHeight-=.05;
-    //currentFloor = targetHeight;
+    
   }
 
-  if(currentFloor > 4){
+  if(currentFloor > 4){//Prevent invalid heights (outside of arm limits)
     currentFloor = 4;
   }
   else if (currentFloor < 0){

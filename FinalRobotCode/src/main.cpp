@@ -14,7 +14,6 @@
 
 //Include files
 #include "vex.h"
-#include "declarations.h"
 #include "matchParameters.h"
 #include "auto.cpp"
 #include "teleopMode.cpp"

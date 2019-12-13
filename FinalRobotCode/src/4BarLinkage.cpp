@@ -25,7 +25,7 @@ float getAngle(double gripperHeight){//Gives the angle OF THE ARM for an intende
   double armAngleDegrees = armAngleRads*57.2957;
   return armAngleDegrees;
 }
-void releaseArm(){
+void releaseArm(){//Temporarily releases the arm, allowing it to return to its natural position. Used in the construction zone auto to zero the arm after crossing into the zone.
   Arm_A.setStopping(coast);
   Arm_A.stop();
   Arm_B.setStopping(coast);
@@ -36,41 +36,26 @@ void releaseArm(){
 
 }
 
-void resetArmPos(){
+void resetArmPos(){//Resets arm encoders
   Arm_B.setPosition(0, deg);
   Arm_A.setPosition(0, deg);
   Brain.Screen.print(Arm_A.position(degrees));
 }
-void armMotorsToAngle(double angle, bool await){
-  
+void armMotorsToAngle(double angle, bool await){//Sets the arm motors to an angle
     Arm_B.spinToPosition(angle, deg, false);
     Arm_A.spinToPosition(angle, deg, await);
-    
-
-    // if(await){
-    //   int currentPosition = Arm_A.position(deg);
-    //   int delta = angle - currentPosition;
-    //   Brain.Screen.print(delta);
-    //   int estTime = abs((delta / 90) * 1.1);
-    //   task::sleep(estTime*1000);
-    // }
   }
-void armToAngle(double angle, bool await){
+
+void armToAngle(double angle, bool await){//Sets the arm to an angle (0 is level)
   double motorAngle = (resetAngle-angle) / speedRatio;
- armMotorsToAngle(motorAngle, await);
- 
+  armMotorsToAngle(motorAngle, await);
+}
+void armToHeight(double height, bool await){//Sets the arm to a given height
+  double armAngle = getAngle(height);
+  armToAngle(armAngle, await);
 }
 
-
-void armToHeight(double height, bool await){//Height in inches
-double armAngle = getAngle(height);
-armToAngle(armAngle, await);
-}
-
-void armToFloor(int floor, bool await){
-    //Brain.Screen.clearScreen();
-    // Brain.Screen.setCursor(0,0);
-    // Brain.Screen.print("Moving to floor", floor);
+void armToFloor(int floor, bool await){//Sets the arm to a given floor, from the allowed floors. If invalid floor is given, return the arm to its home position.
   if(floor == 0){
    armToHeight(-.25, await); 
   }
