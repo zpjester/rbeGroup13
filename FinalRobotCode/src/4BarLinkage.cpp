@@ -6,7 +6,7 @@
 class armLift{
 private:
 
-double floorHeight = 4.7;//Inches
+
 
 public:
 

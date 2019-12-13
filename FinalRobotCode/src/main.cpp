@@ -12,7 +12,7 @@
 // backBump             bumper        A               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
-
+//Include files
 #include "vex.h"
 #include "declarations.h"
 #include "matchParameters.h"
@@ -23,22 +23,19 @@
 #include "gripper.cpp"
 #include "encoderDrive.cpp"
 
-
+//Declare objects
 arcadeDrive driveTrain;
 encDrive encoderDrive;
-
-
 auto1 autoRoutine1;
 teleop teleRoutine;
-
-
 armLift lift;
 rollerIntake gripper;
-int test = 168;
-bool firstTele = true;
+
+int test = 168;//Used to track code updates
+bool firstTele = true;//Helps initialize teleop
 using namespace vex;
 
-char autoColor;
+char autoColor;//Used in auto selection
 char autoSide;
 
 // A global instance of competition
@@ -51,7 +48,7 @@ void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
-  Brain.Timer.reset();
+  Brain.Timer.reset();//Reset timer, not used in navigation but was used in older auto versions
 
   //Set arm parameters
   lift.armLength = 13;
@@ -63,6 +60,7 @@ void pre_auton(void) {
 int screenX = 480;
 int screenY = 272;
 
+//Draw 4 boxes on screen
   Brain.Screen.clearScreen();
   Brain.Screen.setFillColor(black);
   Brain.Screen.drawRectangle(0, 0, screenX/2, screenY/2);
@@ -74,16 +72,13 @@ int screenY = 272;
   Brain.Screen.drawRectangle(0, screenY/2, screenX/2, screenY/2);
   Brain.Screen.setFillColor(blue);
   Brain.Screen.drawRectangle(screenX/2, 0, screenX/2, screenY/2);
-  Brain.Screen.drawRectangle(screenX/2,  screenY/2, screenX/2, screenY/2);
+  Brain.Screen.drawRectangle(screenX/2,  screenY/2, screenX/2, screenY/2);  
 
-  
-
-  while(!Brain.Screen.pressing()){}
+  while(!Brain.Screen.pressing()){}//Wait for touch input, and save the value of the first input
   int touchX = Brain.Screen.xPosition();
   int touchY = Brain.Screen.yPosition();
-  
 
-  if(touchX < screenX/2){
+  if(touchX < screenX/2){//Check position of touch input, and use it to set auto selection variables
     autoColor = 'r';
   }
   else{
@@ -97,23 +92,15 @@ int screenY = 272;
   }
   Brain.Screen.clearScreen();
 
-
-
-
-
-  lift.resetArmPos();
-
-
-  // All activities that occur before the competition starts
-  // Example: clearing encoders, setting servo positions, ...
+  lift.resetArmPos();//Initialize arm position
 }
 
 
 
 void autonomous(void) {
-  Brain.Screen.print(test);
+  Brain.Screen.print(test);//Debug
 
-if(autoColor == 'r'){
+if(autoColor == 'r'){//Select auto, and run the relevant routine.
   if(autoSide == '3'){
     autoRoutine1.runAutoRedTriple();
   }
@@ -136,31 +123,18 @@ else{
 
 
 void usercontrol(void) {
-  // User control code here, inside the loop
- 
- // while (1) {
-
+  
     
-    teleRoutine.runTeleop(firstTele);
-    firstTele = false;
-    
-    // This is the main execution loop for the user control program.
-    // Each time through the loop your program should update motor + servo
-    // values based on feedback from the joysticks.
-
-    // ........................................................................
-    // Insert user code here. This is where you use the joystick values to
-    // update your motors, etc.
-    // ........................................................................
-
+    teleRoutine.runTeleop(firstTele);//Run teleop code
+    firstTele = false;  
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
-  //}
+  
 }
 
 //
 // Main will set up the competition functions and callbacks.
-//
+// This area is unchanged from template code
 int main() {
   // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);

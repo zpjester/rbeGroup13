@@ -1,10 +1,9 @@
+//Include files and set up objects
 #include "vex.h"
 #include "ArcadeDrive.cpp"
 #include "4BarLinkage.cpp"
 #include "gripper.cpp"
 #include "encoderDrive.cpp"
-
-
 
 extern armLift lift;
 extern rollerIntake gripper;
@@ -18,28 +17,15 @@ class teleop{
 public:
 
 
-// void initTeleop(){
-  
-// }
 
-void runTeleop(bool firstRun){
+
+void runTeleop(bool firstRun){//Run the teleop
   int currentFloor = 0;
   int targetHeight = currentFloor*4.92;
   int floorSelecting = false;
   int floorMode = false;
 
   while(true){
-  
-
-  
-  // if(firstRun){
-  // currentFloor = 0;
-  // targetHeight = currentFloor*4.92;
-  // floorSelecting = false;
-  // floorMode = false;
-
-  
-  // }
     //Drive
     driveTrain.driveController('L');
 
@@ -56,9 +42,9 @@ void runTeleop(bool firstRun){
       gripper.stopGripper();
     }
 
-  //Arm floor controls
+  
 
-  //Set the current floor
+  //Set the current floor based on controller inputs
   if(Controller1.ButtonL1.pressing()){
     floorMode = true;
     if(!floorSelecting && currentFloor < 4){

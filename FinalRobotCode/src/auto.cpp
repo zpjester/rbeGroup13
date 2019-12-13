@@ -1,5 +1,7 @@
-#include "vex.h"
+//All 4 auto routines
 
+//Include files and set up objects
+#include "vex.h"
 #include "ArcadeDrive.cpp"
 #include "4BarLinkage.cpp"
 #include "gripper.cpp"
@@ -11,12 +13,12 @@ extern rollerIntake gripper;
 extern arcadeDrive driveTrain;
 extern encDrive encoderDrive;
 
-extern int autoLength;
 
-class auto1{
+
+class auto1{//Create class
 public:
 
-void runAutoBlueConstruct(){
+void runAutoBlueConstruct(){//Auto for blue construction zone
    
 gripper.fullSmartGripper("In");
 
@@ -52,7 +54,7 @@ gripper.stopGripper();
 
   }
 
-void runAutoRedConstruct(){
+void runAutoRedConstruct(){//Auto for red construction zone
    
 gripper.fullSmartGripper("In");
 
@@ -88,7 +90,7 @@ gripper.stopGripper();
   }
 
 
-  void runAutoBlueTriple(){
+  void runAutoBlueTriple(){//3 pizza auto for blue side
     gripper.fullSmartGripper("In");
     encoderDrive.driveDistance(-10, true);
     lift.armToFloor(1, false);
@@ -146,7 +148,7 @@ gripper.stopGripper();
   }
 
 
-  void runAutoRedTriple(){
+  void runAutoRedTriple(){//3 pizza auto for red side
     gripper.fullSmartGripper("In");
     encoderDrive.driveDistance(-10, true);
     lift.armToFloor(1, false);

@@ -1,3 +1,5 @@
+//Arcade drive and unused line follow functions
+
 #ifndef arcadeDriveProtect
 #define arcadeDriveProtect
 
@@ -11,10 +13,6 @@
 class arcadeDrive{
 
 public:
-//Bind drive motors here
- 
-  //controller Controller1 = Controller1;
-
 
 
 float max(float a,float b){//return the larger of two values
@@ -26,7 +24,7 @@ float max(float a,float b){//return the larger of two values
     }
 }
 
-void driveArcade(int arcadeSteer,int arcadeThrottle){
+void driveArcade(int arcadeSteer,int arcadeThrottle){//Arcade drive based on X and Y input values
     float outputL=0;//Setup
     float outputR=0;
     
@@ -49,27 +47,24 @@ void driveArcade(int arcadeSteer,int arcadeThrottle){
     }
     L_Drive.spin(forward, outputL, percent);
     R_Drive.spin(forward, outputR, percent);
-}//True arcade drive, faster than standard arcade. Needs the max(x,y) function
+}
 
 
-void driveController(char stick){
+void driveController(char stick){//Arcade drive using a selected stick
 
   if(stick=='L'){
 
-    double expX = pow(Controller1.Axis4.value(), 3) / pow(100,3);
-    double expY = pow(Controller1.Axis3.value(), 3) / pow(100,3);
+    
    driveArcade(Controller1.Axis4.value(),Controller1.Axis3.value());
-  // driveArcade(expX, expY);
+ 
   }
 
   else{
-    double expX = pow(Controller1.Axis2.value(), 3) / pow(127,3);
-    double expY = pow(Controller1.Axis1.value(), 3) / pow(127,3);
- driveArcade(expX, expY);
+    driveArcade(Controller1.Axis2.value(),Controller1.Axis1.value());
   }
 }
 
-bool basicLineFollow(){
+bool basicLineFollow(){//Basic line following, unused due to inconsistent values when moving over colored tape on the field
   int lineThreshold = 12;
   int offSteer = 50;
   bool L_Tripped;
