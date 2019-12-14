@@ -59,7 +59,7 @@ void driveArc(float radius, char driveDirection, char turnDirection, float angle
     }
 }
 
-void driveDistance(float distance, bool await){//Drives a ser distance
+void driveDistance(float distance, bool await){//Drives a set distance
     float motorMaxSpeed=100;//percent
     float motorRot = calculateRotations(distance);
     R_Drive.setVelocity(motorMaxSpeed, percent);
